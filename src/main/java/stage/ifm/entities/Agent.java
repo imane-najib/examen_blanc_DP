@@ -7,6 +7,7 @@ public class Agent implements Observer,Observable{
     private String nom;
     private List<Transaction> transactions;
     private List<Observer> observers = new ArrayList<>();
+    private IStrategy strategy = new ScoringStrategy();
 
     public Agent(String nom, List<Transaction> transactions) {
         this.nom = nom;
@@ -48,7 +49,7 @@ public class Agent implements Observer,Observable{
 
     @Override
     public void update(String nom, Transaction transaction) {
-
+        strategy.notifTraitement(nom,transaction);
     }
 
     public void AjouterTransaction(Transaction transaction){
