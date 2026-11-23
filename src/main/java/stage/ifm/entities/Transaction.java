@@ -48,6 +48,16 @@ public class Transaction {
         this.typeTransaction = typeTransaction;
     }
 
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id='" + id + '\'' +
+                ", date=" + date +
+                ", montant=" + montant +
+                ", typeTransaction=" + typeTransaction +
+                '}';
+    }
+
     public static class TransactionBuilder {
         private Transaction transaction = new Transaction();
 
@@ -70,6 +80,8 @@ public class Transaction {
         public Transaction build() {
             return this.transaction;
         }
+
+
     }
 
 
