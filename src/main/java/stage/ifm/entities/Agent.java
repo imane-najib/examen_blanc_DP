@@ -56,4 +56,23 @@ public class Agent implements Observer,Observable{
         transactions.add(transaction);
         this.notifyObservers(this.nom,transaction);
     }
+
+    @Override
+    public String toString() {
+        return "Agent{" +
+                "nom='" + nom + '\'' +
+                ", transactions=" + transactions +
+                '}';
+    }
+
+    public Transaction transactionGrandMon(){
+        Transaction max = transactions.get(0);
+        for (Transaction transaction : transactions) {
+
+            if(transaction.getMontant() > max.getMontant()){
+                max = transaction;
+            }
+        }
+        return max;
+    }
 }
