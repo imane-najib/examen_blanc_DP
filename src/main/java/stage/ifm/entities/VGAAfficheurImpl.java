@@ -1,7 +1,11 @@
 package stage.ifm.entities;
 
+import org.springframework.stereotype.Component;
+import stage.ifm.aspects.Log;
+
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class VGAAfficheurImpl implements VGAAfficheur {
     @Override

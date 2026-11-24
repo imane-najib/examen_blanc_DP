@@ -1,5 +1,8 @@
 package stage.ifm.entities;
 
+import org.springframework.stereotype.Component;
+
+
 public class VGAAdapter implements HDMIAfficheur {
     private VGAAfficheur vgaAfficheur;
 

@@ -1,18 +1,18 @@
 package stage.ifm.entities;
 
+import org.springframework.stereotype.Component;
+import stage.ifm.aspects.Cachable;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class Agent implements Observer,Observable{
     private String nom;
     private List<Transaction> transactions;
     private List<Observer> observers = new ArrayList<>();
     private IStrategy strategy = new ScoringStrategy();
 
-    public Agent(String nom, List<Transaction> transactions) {
-        this.nom = nom;
-        this.transactions = transactions;
-    }
+
     public Agent(){}
     public String getNom() {
         return nom;
@@ -65,7 +65,9 @@ public class Agent implements Observer,Observable{
                 '}';
     }
 
+    @Cachable
     public Transaction transactionGrandMon(){
+        System.out.println("PREMIER");
         Transaction max = transactions.get(0);
         for (Transaction transaction : transactions) {
 
